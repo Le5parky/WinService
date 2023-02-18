@@ -8,11 +8,22 @@
       "dotnetRunMessages": true
     },
     "WSL": {
-      "commandName": "WSL2",
-      "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Development"
-      },
-      "distributionName": ""
+        "commandName": "WSL2",
+        "environmentVariables": {
+            "DOTNET_ENVIRONMENT": "Development"
+        },
+        "distributionName": ""
+    },
+    "DeployService": {
+        "commandName": "Project",
+        "commandLineArgs": "--console",
+        "launchBrowser": "true",
+        "launchUrl": "AppDeploy/",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "dotnetRunMessage": "true",
+        "applicationUrk": "http://*:5002"
     }
   }
 }
