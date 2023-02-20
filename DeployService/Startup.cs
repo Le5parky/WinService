@@ -5,47 +5,38 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace DeployService
 {
     internal class Startup
     {
-        public Startup(IConfiguration configuration) { 
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
 
-        public IConfiguration Configuration { get; }
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc(options => options.EnableEndpointRouting = false);  
-            services.AddLogging();
-            services.AddHealthChecks();
-            services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
-            //DI add all managers here
-        }
+		public IConfiguration Configuration { get; }
 
-        public void Configure(IApplicationBuilder app, IHostEnvironment env, IApplicationLifetime appLifetime, ILoggerFactory logFactory)
-        {
-            if(env.IsDevelopment())
-            {
-                app.UseHsts();
-            }
+		public void ConfigureServices(IServiceCollection services)
+		{
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+			services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+			services.AddLogging();
+		}
+		
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime appLifetime, ILoggerFactory loggerFactory)
+		{
+			if (!env.IsDevelopment())
+			{
+				app.UseHsts();
+			
+				// var log4NetConfigurationPath = Path.Combine(ConfigurationManager.AppSettings.Get("ConfigurationPath"), "log4net.config");
+				// loggerFactory.AddLog4Net(log4NetConfigurationPath);
+			}
 
-            app.UseRouting();   
-            app.UseAuthentication();
-            app.UseMvc();
-            app.UseCors();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
+			app.UseHttpsRedirection();
+			app.UseMvc();
+		}
     }
 }
