@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using DeployService.Configuration;
+using DeployService.Configuration.Interface;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +24,8 @@ namespace DeployService
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 			services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 			services.AddLogging();
+
+			services.AddScoped<IDeployServiceConfiguration, DeployServiceConfiguration>();
 		}
 		
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

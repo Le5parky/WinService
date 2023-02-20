@@ -18,7 +18,6 @@ namespace DeployService.Service
 
         protected override void OnStarting(string[] args)
         {
-            
             base.OnStarting(args);
         }
         protected override void OnStarted()
