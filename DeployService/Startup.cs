@@ -1,4 +1,7 @@
-﻿using DeployService.Configuration;
+﻿using System.IO;
+using System.Configuration;
+using log4net.Config;
+using DeployService.Configuration;
 using DeployService.Configuration.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
@@ -25,18 +28,15 @@ namespace DeployService
 			services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 			services.AddLogging();
 
-			services.AddScoped<IDeployServiceConfiguration, DeployServiceConfiguration>();
+			services.AddSingleton<IDeployServiceConfiguration, DeployServiceConfiguration>();
 		}
 		
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime appLifetime, ILoggerFactory loggerFactory)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
 			if (!env.IsDevelopment())
 			{
 				app.UseHsts();
-			
-				// var log4NetConfigurationPath = Path.Combine(ConfigurationManager.AppSettings.Get("ConfigurationPath"), "log4net.config");
-				// loggerFactory.AddLog4Net(log4NetConfigurationPath);
 			}
 
 			app.UseHttpsRedirection();

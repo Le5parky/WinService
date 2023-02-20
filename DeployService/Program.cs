@@ -27,8 +27,6 @@ class Program
 			var builder = CreateWebHostBuilder(
 				args.Where(arg => arg != ConsoleCmd).ToArray());
 
-			
-
 			var host = builder.Build();
 
 			if (isService)

@@ -73,7 +73,6 @@
 /workspaces/WinService/DeployService/bin/Debug/net48/Microsoft.CodeAnalysis.dll
 /workspaces/WinService/DeployService/bin/Debug/net48/Microsoft.CodeAnalysis.CSharp.dll
 /workspaces/WinService/DeployService/bin/Debug/net48/Microsoft.CodeAnalysis.Razor.dll
-/workspaces/WinService/DeployService/bin/Debug/net48/Microsoft.DotNet.PlatformAbstractions.dll
 /workspaces/WinService/DeployService/bin/Debug/net48/Microsoft.Extensions.Caching.Abstractions.dll
 /workspaces/WinService/DeployService/bin/Debug/net48/Microsoft.Extensions.Caching.Memory.dll
 /workspaces/WinService/DeployService/bin/Debug/net48/Microsoft.Extensions.Configuration.dll
@@ -134,3 +133,9 @@
 /workspaces/WinService/DeployService/obj/Debug/net48/DeployService.csproj.CopyComplete
 /workspaces/WinService/DeployService/obj/Debug/net48/DeployService.exe
 /workspaces/WinService/DeployService/obj/Debug/net48/DeployService.pdb
+/workspaces/WinService/DeployService/bin/Debug/net48/Serilog.dll
+/workspaces/WinService/DeployService/bin/Debug/net48/Serilog.Extensions.Hosting.dll
+/workspaces/WinService/DeployService/bin/Debug/net48/Serilog.Extensions.Logging.dll
+/workspaces/WinService/DeployService/bin/Debug/net48/Serilog.Settings.Configuration.dll
+/workspaces/WinService/DeployService/bin/Debug/net48/Serilog.Sinks.Console.dll
+/workspaces/WinService/DeployService/bin/Debug/net48/Serilog.Sinks.File.dll
